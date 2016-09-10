@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>UFCFighterRecSys</title>
+  <meta charset="utf-8">
+  <meta name="description" content="UFCFighterRecSys">
+  <meta name="author" content="Rodrigo Araujo">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>UFCFighterRecSys</h1>
+    <h2>A recommendation systems for UFC fans</h2>
+    <p>Rodrigo Araujo<br/>Data Scientist</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>What is this app?</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>This web app helps new UFC[1] fans find exciting fighters to follow.</li>
+<li>But what is the UFC anyways?
+
+<ul>
+<li>The UFC is a sport organization the promote fights all around the world. A 
+UFC fighter is called a Mixed-Martial Artist, which consist of an athlete that 
+dominates multiple fighting disciplines, e.g wrestling, jiu-jitsu, and boxing.</li>
+<li>Ther UFC is considered the fastest growing sport in the world according to 
+some media outlets [2].</li>
+</ul></li>
+</ol>
+
+<ul>
+<li>[1] <a href="http://www.ufc.com">www.ufc.com</a></li>
+<li>[2] <a href="http://www.mirror.co.uk/sport/other-sports/mma/11-things-you-really-need-3277676">http://www.mirror.co.uk/sport/other-sports/mma/11-things-you-really-need-3277676</a></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>How the app was created?</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>In order to recommend fighters for the fans, it is crucial to gather the most 
+information possible about fighters and fights.</li>
+<li>Since there is no standalone database of all fighters and fights of the UFC, 
+I am using data that has been scraped from <a href="http://www.sherdog.com">www.sherdog.com</a>. Thanks to 
+geyges who posted that on reddit. 
+
+<ul>
+<li>Link post.<a href="http://tinyurl.com/zsegztg">http://tinyurl.com/zsegztg</a>. The database can also be found at <a href="http://www.datasets.co/dataset/All-UFC-Fights">http://www.datasets.co/dataset/All-UFC-Fights</a> thanks to mrborgen86.</li>
+</ul></li>
+<li>Here is a sample of part of the fighter table.</li>
+</ol>
+
+<pre><code>##             name birth_date height weight             class       country
+## 1 Conor McGregor  7/14/1988     68    145     Featherweight       Ireland
+## 2      Jon Jones  7/19/1987     76    205 Light Heavyweight United States
+## 3     Holly Holm 10/17/1981     68    135      Bantamweight United States
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>How the app work?</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>The recommendation is done based on the similarity of fighters.</li>
+<li>The app creates a list of fighters that has similar patterns of wining 
+methods based on a previously selected fighter that you already like.
+
+<ul>
+<li>For example, let&#39;s say you like <strong>Ronda Rousey</strong>, she is well known for her nasty 
+armbar technique. Since you like Ronda, it is infered that you like <strong>armbar</strong> 
+techniques. Therefore, a list of fighters that has a high number of fight 
+finishes using armbar is going to be recommended to you. The same idea can be 
+used in the case you like a fighter with a high number of KO&#39;s using punches.</li>
+</ul></li>
+</ol>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>How to use the app?</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><p>First choose a fighter you already like using the drop down menu.</p></li>
+<li><p>Once you select the fighter, a table with information about the selected 
+fighter will be displayed on the main panel.</p></li>
+<li><p>Finally, hit the go button to get recommendations of similar fighters.</p></li>
+<li><p>Link for the app. <a href="https://sineco.shinyapps.io/ProjectUFCFighterRecSys">https://sineco.shinyapps.io/ProjectUFCFighterRecSys</a></p></li>
+</ul>
+
+<iframe src='./images/chooseFighter.png' width=800px height=250px>
+</iframe> 
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='What is this app?'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='How the app was created?'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='How the app work?'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='How to use the app?'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
